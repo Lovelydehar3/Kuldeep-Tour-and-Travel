@@ -269,8 +269,9 @@ Pragpur, Dehra, Kangra, Himachal Pradesh, India
 | 📱 Phone | +91 9816883719 |
 | 📧 Email | Balajitourandtravel38@gmail.com |
 | 🌐 Website | [balajitourtravel.com](https://www.balajitourtravel.com) |
-| 📸 Instagram | [@kuld.eeptourtravel](https://www.instagram.com/kuld.eeptourtravel) |
-| 📘 Facebook | [Balaji Tour & Travel](https://www.facebook.com/share/17VhuQyM6H/) |
+| 📸 Instagram | [@balajitourandtravel.15](https://www.instagram.com/balajitourandtravel.15?evlk=ZGd6NnZjaXUyazhi&utm_source=qr) |
+| 📘 Facebook | [Balaji Tour & Travel](https://www.facebook.com/Balajitourandtravel38?mibextid=wwXIfr&rdid=VV6BDAwx88G4sip8&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1KaEtuCDdm%2F%3Fmibextid%3DwwXIfr#) |
+| ✖️ X (Twitter) | [@balajitravel_](https://x.com/balajitravel_?s=11) |
 | 📍 Google Maps | 5.0 ⭐ — Pragpur, Dehra, Kangra, Himachal Pradesh |
 
 ---

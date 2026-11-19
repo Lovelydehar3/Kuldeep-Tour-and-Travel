@@ -126,7 +126,7 @@ const PackageDetail = () => {
             "name": "Balaji Tour & Travel",
             "telephone": CONTACT.phoneE164,
             "email": CONTACT.email,
-            "sameAs": [CONTACT.facebookUrl, CONTACT.instagramUrl],
+            "sameAs": [CONTACT.facebookUrl, CONTACT.instagramUrl, CONTACT.twitterUrl],
           },
           ...(packageData.packageMode === 'tour'
             ? {

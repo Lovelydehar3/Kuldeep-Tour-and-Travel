@@ -153,7 +153,7 @@ const SEO: React.FC<SEOProps> = ({
             { '@type': 'Offer', name: 'Devi Darshan Temple Taxi' },
             { '@type': 'Offer', name: 'Himachal Tour Packages' },
           ],
-          sameAs: [CONTACT.facebookUrl, CONTACT.instagramUrl],
+          sameAs: [CONTACT.facebookUrl, CONTACT.instagramUrl, CONTACT.twitterUrl],
         })}
       </script>
 
