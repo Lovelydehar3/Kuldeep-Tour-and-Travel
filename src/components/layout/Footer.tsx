@@ -127,8 +127,17 @@ const Footer = () => {
               </li>
               <li>
                 <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3 text-cream/80 hover:text-primary transition-colors text-sm">
-                  <Mail size={16} className="text-primary" />
-                  {CONTACT.email}
+                  <Mail size={16} className="text-primary flex-shrink-0" />
+                  <span>{CONTACT.email}</span>
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${CONTACT.adminEmail}`} className="flex items-center gap-3 text-cream/80 hover:text-primary transition-colors text-sm">
+                  <Mail size={16} className="text-primary flex-shrink-0" />
+                  <span>
+                    <span className="text-xs text-primary block font-medium">Owner / Admin:</span>
+                    {CONTACT.adminEmail}
+                  </span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-cream/80 text-sm">

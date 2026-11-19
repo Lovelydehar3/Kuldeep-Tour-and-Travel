@@ -35,6 +35,11 @@ const Header = () => {
               <Mail size={14} />
               <span>{CONTACT.email}</span>
             </a>
+            <span className="hidden lg:inline text-cream/40">|</span>
+            <a href={`mailto:${CONTACT.adminEmail}`} className="hidden lg:flex items-center gap-1.5 text-cream/80 hover:text-primary transition-colors text-xs">
+              <span className="text-primary font-medium">Owner:</span>
+              <span>{CONTACT.adminEmail}</span>
+            </a>
           </div>
           <span className="text-primary font-medium hidden sm:inline">24/7 Customer Support</span>
         </div>

@@ -32,26 +32,33 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: [CONTACT.phoneDisplay],
-      link: `tel:${CONTACT.phoneE164}`,
+      items: [
+        { label: 'Customer Care', text: CONTACT.phoneDisplay, link: `tel:${CONTACT.phoneE164}` },
+      ],
     },
     {
       icon: Mail,
       title: 'Email',
-      details: [CONTACT.email],
-      link: `mailto:${CONTACT.email}`,
+      items: [
+        { label: 'Owner / Admin', text: CONTACT.adminEmail, link: `mailto:${CONTACT.adminEmail}` },
+        { label: 'Booking & Support', text: CONTACT.email, link: `mailto:${CONTACT.email}` },
+      ],
     },
     {
       icon: MapPin,
       title: 'Address',
-      details: [CONTACT.addressLine1, CONTACT.addressLine2],
-      link: null,
+      items: [
+        { label: '', text: CONTACT.addressLine1, link: null },
+        { label: '', text: CONTACT.addressLine2, link: null },
+      ],
     },
     {
       icon: Clock,
       title: 'Working Hours',
-      details: ['24/7 Available', 'Always at your service'],
-      link: null,
+      items: [
+        { label: '', text: '24/7 Available', link: null },
+        { label: '', text: 'Always at your service', link: null },
+      ],
     },
   ];
 
@@ -81,14 +88,19 @@ const Contact = () => {
                     <info.icon size={28} className="text-primary" />
                   </div>
                   <h3 className="font-bold text-lg mb-2 font-display">{info.title}</h3>
-                  {info.details.map((detail, i) => (
-                    info.link ? (
-                      <a key={i} href={info.link} className="block text-muted-foreground hover:text-primary transition-colors">
-                        {detail}
-                      </a>
-                    ) : (
-                      <p key={i} className="text-muted-foreground">{detail}</p>
-                    )
+                  {info.items.map((item, i) => (
+                    <div key={i} className="mb-2 last:mb-0">
+                      {item.label && (
+                        <span className="text-xs font-semibold text-primary block">{item.label}</span>
+                      )}
+                      {item.link ? (
+                        <a href={item.link} className="block text-muted-foreground hover:text-primary transition-colors text-sm break-all">
+                          {item.text}
+                        </a>
+                      ) : (
+                        <p className="text-muted-foreground text-sm">{item.text}</p>
+                      )}
+                    </div>
                   ))}
                 </CardContent>
               </Card>

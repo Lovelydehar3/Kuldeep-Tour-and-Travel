@@ -9,7 +9,7 @@ import FleetPreview from '@/components/home/FleetPreview';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Phone, ArrowRight } from 'lucide-react';
+import { Phone, ArrowRight, Mail } from 'lucide-react';
 import { CONTACT } from '@/lib/contact';
 
 const Index = () => {
@@ -50,9 +50,18 @@ const Index = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-cream font-display mb-2">
           Ready to Start Your Journey?
         </h2>
-        <p className="text-cream/70">
-          Book your ride now or call us for instant assistance
+        <p className="text-cream/70 mb-4">
+          Book your ride now or contact our team & owner directly for instant assistance
         </p>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-cream/90">
+          <a href={`mailto:${CONTACT.adminEmail}`} className="flex items-center gap-2 hover:text-primary transition-colors">
+            <Mail size={16} className="text-primary flex-shrink-0" />
+            <span><strong className="text-primary font-medium">Owner / Admin:</strong> {CONTACT.adminEmail}</span>
+          </a>
+          <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-2 hover:text-primary transition-colors text-cream/70">
+            <span>Support: {CONTACT.email}</span>
+          </a>
+        </div>
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4">
