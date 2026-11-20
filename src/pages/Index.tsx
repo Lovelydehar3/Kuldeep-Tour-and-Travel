@@ -56,7 +56,7 @@ const Index = () => {
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-cream/90">
           <a href={`mailto:${CONTACT.adminEmail}`} className="flex items-center gap-2 hover:text-primary transition-colors">
             <Mail size={16} className="text-primary flex-shrink-0" />
-            <span><strong className="text-primary font-medium">Owner / Admin:</strong> {CONTACT.adminEmail}</span>
+            <span><strong className="text-primary font-medium">Admin:</strong> {CONTACT.adminEmail}</span>
           </a>
           <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-2 hover:text-primary transition-colors text-cream/70">
             <span>Support: {CONTACT.email}</span>

@@ -40,7 +40,7 @@ const Contact = () => {
       icon: Mail,
       title: 'Email',
       items: [
-        { label: 'Owner / Admin', text: CONTACT.adminEmail, link: `mailto:${CONTACT.adminEmail}` },
+        { label: 'Admin', text: CONTACT.adminEmail, link: `mailto:${CONTACT.adminEmail}` },
         { label: 'Booking & Support', text: CONTACT.email, link: `mailto:${CONTACT.email}` },
       ],
     },
