@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, MessageCircle, Youtube, Linkedin } from 'lucide-react';
 import logo from '@/assets/logo.jpg';
 import { CONTACT } from '@/lib/contact';
@@ -183,7 +183,7 @@ const Footer = () => {
               © {new Date().getFullYear()} Balaji Tour & Travel. All rights reserved.
             </p>
             <p className="text-cream/70 text-xs mt-1">
-              Developed & maintained by Lovepreet Singh
+              Developed & maintained by <a href="https://github.com/Lovelydehar3" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Lovepreet Singh</a> &amp; <a href="https://github.com/KARAN-SHARXA" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Karan Sharma</a>
             </p>
           </div>
           <div className="flex gap-6 flex-wrap justify-center">
