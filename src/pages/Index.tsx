@@ -23,14 +23,14 @@ const Index = () => {
       {/* 1. Hero Slider */}
       <HeroSlider />
 
-    {/* 2. Reach Stations */}
-      <ReachStations />
-      
-      {/* 3. Fixed Packages */}
+    {/* 2. Fixed Packages */}
       <FixedPackagesSection />
       
-      {/* 4. Explore Himachal */}
+      {/* 3. Explore Himachal */}
       <DestinationsPreview />
+
+      {/* 4. Station & Airport Transfers */}
+      <ReachStations />
       
       {/* 5. Book Now */}
       <BookNowSection />
