@@ -53,7 +53,7 @@ const HeroSlider = () => {
   const slide = slides[currentSlide];
 
   return (
-    <section className="relative h-[58vh] sm:h-[85vh] min-h-[340px] sm:min-h-[500px] md:min-h-[600px] overflow-hidden">
+    <section className="relative h-[44vh] sm:h-[85vh] min-h-[300px] sm:min-h-[500px] md:min-h-[600px] overflow-hidden">
       {/* Active Slide (render only one image to avoid downloading hidden slides) */}
       <div key={slide.id} className="absolute inset-0 animate-fade-in">
         <OptimizedImage
