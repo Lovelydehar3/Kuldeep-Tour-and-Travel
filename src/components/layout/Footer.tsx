@@ -152,10 +152,7 @@ const Footer = () => {
               <li>
                 <a href={`mailto:${CONTACT.adminEmail}`} className="flex items-center gap-3 text-cream/80 hover:text-primary transition-colors text-sm">
                   <Mail size={16} className="text-primary flex-shrink-0" />
-                  <span>
-                    <span className="text-xs text-primary block font-medium">Admin:</span>
-                    {CONTACT.adminEmail}
-                  </span>
+                  <span>Email Us</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-cream/80 text-sm">
