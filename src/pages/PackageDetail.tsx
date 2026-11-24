@@ -1,7 +1,7 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
 import SEO from '@/components/SEO';
-import { MapPin, Clock, Calendar, CheckCircle, XCircle, ArrowRight, Phone, MessageCircle } from 'lucide-react';
+import { MapPin, Clock, Calendar, CheckCircle, XCircle, ArrowRight, Phone, MessageCircle, Car, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { getFixedPackageBySlug, generateBookingId, addBookingLog, generateFixedPackageBookingMessage, getStations } from '@/data';
@@ -183,13 +183,36 @@ const PackageDetail = () => {
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4">
                   {packageData.shortDescription}
                 </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  {packageData.packageMode === 'tour'
-                    ? 'This comprehensive tour package covers multiple destinations with pre-planned routes, comfortable accommodations, and hassle-free travel arrangements. Perfect for travelers seeking a complete experience without individual bookings.'
-                    : 'This point-to-point transfer service offers direct travel without any stay included. Ideal for travelers looking for efficient and reliable transportation to their destination.'
-                  }
-                </p>
+                {/* Rich description paragraphs (if present in data) */}
+                {((packageData as any).description as string[] | undefined)?.map((para: string, i: number) => (
+                  <p key={i} className="text-muted-foreground leading-relaxed mb-3">
+                    {para}
+                  </p>
+                ))}
+                {!((packageData as any).description) && (
+                  <p className="text-muted-foreground leading-relaxed">
+                    {packageData.packageMode === 'tour'
+                      ? 'This comprehensive tour package covers multiple destinations with pre-planned routes, comfortable accommodations, and hassle-free travel arrangements. Perfect for travelers seeking a complete experience without individual bookings.'
+                      : 'This point-to-point transfer service offers direct travel without any stay included. Ideal for travelers looking for efficient and reliable transportation to their destination.'
+                    }
+                  </p>
+                )}
               </div>
+
+              {/* Your Go-To Choice / Service Points */}
+              {((packageData as any).servicePoints as string[] | undefined)?.length > 0 && (
+                <div className="p-5 md:p-6 rounded-2xl bg-muted">
+                  <h2 className="text-xl md:text-2xl font-bold mb-4 font-display">Your Go-To Choice for Taxi Rentals</h2>
+                  <ul className="space-y-3">
+                    {((packageData as any).servicePoints as string[]).map((point: string, i: number) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <CheckCircle size={18} className="text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-muted-foreground">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* About Temple (Baglamukhi specific) */}
               {packageData.slug === 'amb-andaura-to-baglamukhi' && (
@@ -207,6 +230,50 @@ const PackageDetail = () => {
                 </div>
               )}
 
+              {/* Popular Routes */}
+              {((packageData as any).popularRoutes as string[] | undefined)?.length > 0 && (
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">Popular Routes from Amb Andaura</h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {((packageData as any).popularRoutes as string[]).map((route: string, i: number) => (
+                      <div key={i} className="flex items-center gap-3 p-3 bg-muted rounded-lg">
+                        <MapPin size={16} className="text-primary flex-shrink-0" />
+                        <span className="text-sm">{route}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Fleet Section */}
+              {(packageData as any).fleetDescription && (
+                <div className="p-5 md:p-6 rounded-2xl bg-muted">
+                  <h2 className="text-xl md:text-2xl font-bold mb-3 font-display">Comfortable Fleet, Spiritual Journeys</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {(packageData as any).fleetDescription}
+                  </p>
+                </div>
+              )}
+
+              {/* Why Choose Us */}
+              {((packageData as any).whyChooseUs as string[] | undefined)?.length > 0 && (
+                <Card className="card-travel bg-primary/5 border-primary/20">
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="text-lg md:text-xl font-bold mb-4 font-display text-primary">
+                      Why Choose Balaji Tour & Travel?
+                    </h3>
+                    <ul className="space-y-3">
+                      {((packageData as any).whyChooseUs as string[]).map((item: string, i: number) => (
+                        <li key={i} className="flex items-center gap-3">
+                          <CheckCircle size={18} className="text-primary flex-shrink-0" />
+                          <span className="text-sm font-medium">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              )}
+
               {/* Highlights */}
               {packageData.packageMode === 'tour' && (
                 <div>
@@ -222,20 +289,22 @@ const PackageDetail = () => {
                 </div>
               )}
 
-              {/* What Makes It Special */}
-              <Card className="card-travel bg-primary/5 border-primary/20">
-                <CardContent className="p-4 md:p-6">
-                  <h3 className="text-lg md:text-xl font-bold mb-3 font-display text-primary">
-                    Why Choose This Package?
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {packageData.packageMode === 'tour'
-                      ? 'This fixed package offers a perfect blend of convenience and exploration. With pre-planned routes and comfortable accommodations, you can experience the best of each destination without the hassle of individual bookings.'
-                      : 'This direct transfer service provides reliable and efficient transportation. No stops, no detours - just straight to your destination with professional service.'
-                    }
-                  </p>
-                </CardContent>
-              </Card>
+              {/* What Makes It Special — only shown if no custom whyChooseUs */}
+              {!((packageData as any).whyChooseUs?.length) && (
+                <Card className="card-travel bg-primary/5 border-primary/20">
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="text-lg md:text-xl font-bold mb-3 font-display text-primary">
+                      Why Choose This Package?
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {packageData.packageMode === 'tour'
+                        ? 'This fixed package offers a perfect blend of convenience and exploration. With pre-planned routes and comfortable accommodations, you can experience the best of each destination without the hassle of individual bookings.'
+                        : 'This direct transfer service provides reliable and efficient transportation. No stops, no detours - just straight to your destination with professional service.'
+                      }
+                    </p>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Itinerary */}
               {packageData.packageMode === 'tour' && packageData.itinerary.length > 0 && (
