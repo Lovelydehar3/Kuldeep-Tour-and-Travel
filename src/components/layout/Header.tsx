@@ -31,6 +31,10 @@ const Header = () => {
               <Phone size={14} />
               <span className="whitespace-nowrap">{CONTACT.phoneDisplay}</span>
             </a>
+            <a href={`tel:${CONTACT.secondaryPhoneE164}`} className="hidden sm:flex items-center gap-2 hover:text-primary transition-colors">
+              <Phone size={14} />
+              <span className="whitespace-nowrap">{CONTACT.secondaryPhoneDisplay}</span>
+            </a>
             <a href={`mailto:${CONTACT.email}`} className="hidden md:flex items-center gap-2 hover:text-primary transition-colors">
               <Mail size={14} />
               <span>{CONTACT.email}</span>

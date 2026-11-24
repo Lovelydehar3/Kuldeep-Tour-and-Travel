@@ -1,6 +1,8 @@
 export const CONTACT = {
   phoneDisplay: '+91 9816883719',
   phoneE164: '+919816883719',
+  secondaryPhoneDisplay: '+91 7591864719',
+  secondaryPhoneE164: '+917591864719',
   whatsappE164: '919816883719',
   email: 'Balajitourandtravel38@gmail.com',
   adminEmail: 'Pt562100@gmail.com',

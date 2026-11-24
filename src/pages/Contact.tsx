@@ -33,7 +33,8 @@ const Contact = () => {
       icon: Phone,
       title: 'Phone',
       items: [
-        { label: 'Customer Care', text: CONTACT.phoneDisplay, link: `tel:${CONTACT.phoneE164}` },
+        { label: 'Customer Care (Main)', text: CONTACT.phoneDisplay, link: `tel:${CONTACT.phoneE164}` },
+        { label: 'Secondary', text: CONTACT.secondaryPhoneDisplay, link: `tel:${CONTACT.secondaryPhoneE164}` },
       ],
     },
     {

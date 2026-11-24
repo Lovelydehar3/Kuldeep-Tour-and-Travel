@@ -144,6 +144,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
+                <a href={`tel:${CONTACT.secondaryPhoneE164}`} className="flex items-center gap-3 text-cream/80 hover:text-primary transition-colors text-sm">
+                  <Phone size={16} className="text-primary" />
+                  {CONTACT.secondaryPhoneDisplay}
+                </a>
+              </li>
+              <li>
                 <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3 text-cream/80 hover:text-primary transition-colors text-sm">
                   <Mail size={16} className="text-primary flex-shrink-0" />
                   <span>{CONTACT.email}</span>
