@@ -29,6 +29,9 @@ export interface FixedPackage {
   status: 'draft' | 'active' | 'inactive';
   itinerary: ItineraryDay[];
   priority: number;
+  highlights?: string[];
+  inclusions?: string[];
+  exclusions?: string[];
 }
 
 export interface SimpleTour {

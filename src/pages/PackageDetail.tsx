@@ -92,7 +92,7 @@ const PackageDetail = () => {
     window.open(buildWhatsAppUrl(message), '_blank');
   };
 
-  const inclusions = [
+  const inclusions = (packageData as any).inclusions || [
     'Pickup & Drop from ' + (packageData.pickupType === 'station' ? 'Railway Station' : 'Airport'),
     'Comfortable AC vehicle for entire journey',
     packageData.packageMode === 'tour' ? 'Hotel accommodation' : 'Direct transfer service',
@@ -100,13 +100,15 @@ const PackageDetail = () => {
     packageData.packageMode === 'tour' ? 'All sightseeing as per itinerary' : 'All route charges',
   ];
 
-  const exclusions = [
+  const exclusions = (packageData as any).exclusions || [
     'Meals (breakfast, lunch, dinner)',
     'Entry tickets to monuments & attractions',
     'Adventure activity charges',
     'Personal expenses & tips',
     'Any additional services not mentioned',
   ];
+
+  const highlights: string[] = (packageData as any).highlights || [];
 
   return (
     <Layout>
@@ -189,15 +191,31 @@ const PackageDetail = () => {
                 </p>
               </div>
 
+              {/* About Temple (Baglamukhi specific) */}
+              {packageData.slug === 'amb-andaura-to-baglamukhi' && (
+                <div className="p-5 md:p-6 rounded-2xl bg-primary/5 border border-primary/20">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display text-primary">About Maa Baglamukhi Temple</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    Maa Baglamukhi Temple, located in Bankhandi village of Kangra district, Himachal Pradesh, is one of the most revered Shakti Peethas in India. The temple is dedicated to Goddess Baglamukhi — the eighth of the ten Mahavidyas — who is worshipped as the destroyer of evil, obstacles, and negative energies.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    The Goddess is depicted in a golden yellow form, holding a club in her right hand and pulling the tongue of a demon with her left — symbolizing her power to paralyze enemies and remove all barriers in life. Devotees from across the country visit this temple seeking victory, protection, and spiritual strength.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    The temple sits amidst lush green hills and exudes a deeply spiritual atmosphere. The main shrine is beautifully adorned with flowers and gold ornaments, and the divine energy here is said to be exceptionally powerful. Special havans and pujas are performed regularly, especially on Ashtami and Navami.
+                  </p>
+                </div>
+              )}
+
               {/* Highlights */}
               {packageData.packageMode === 'tour' && (
                 <div>
                   <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">Package Highlights</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {packageData.itinerary.slice(0, 5).map((day, i) => (
+                    {(highlights.length > 0 ? highlights : packageData.itinerary.slice(0, 5).map(d => d.title)).map((item, i) => (
                       <div key={i} className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                         <MapPin size={18} className="text-primary flex-shrink-0" />
-                        <span className="text-sm">{day.title}</span>
+                        <span className="text-sm">{item}</span>
                       </div>
                     ))}
                   </div>

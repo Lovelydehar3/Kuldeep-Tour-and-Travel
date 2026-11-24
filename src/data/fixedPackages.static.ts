@@ -134,15 +134,51 @@ export const FIXED_PACKAGES: FixedPackage[] = [
     pickupType: 'station',
     pickupLocationId: '1',
     dropLocation: 'Maa Baglamukhi Temple',
-    packageMode: 'only-drop',
+    packageMode: 'tour',
+    duration: 'Drop Service',
     price: 0,
     showOnHomepage: true,
     shortDescription:
-      'Reliable point-to-point drop service from Amb Andaura Railway Station directly to Maa Baglamukhi Temple. No hotel stay included, ensuring a smooth and hassle-free pilgrimage journey.',
+      'A sacred pilgrimage drop service from Amb Andaura Railway Station directly to Maa Baglamukhi Temple, Bankhandi — one of the most powerful Shakti Peethas in Himachal Pradesh.',
     images: [mataBaglamukhi],
     status: 'active',
     priority: 4,
-    itinerary: [],
+    highlights: [
+      'Direct drop from Amb Andaura Railway Station to Maa Baglamukhi Temple',
+      'Comfortable AC vehicle for the pilgrimage journey',
+      'Experienced driver familiar with the temple route',
+      'Point-to-point hassle-free transfer service',
+      'No hotel stay included — pure darshan trip',
+    ],
+    inclusions: [
+      'Pickup from Amb Andaura Railway Station',
+      'Drop at Maa Baglamukhi Temple, Bankhandi',
+      'Comfortable AC vehicle',
+      'Driver allowances & toll charges',
+    ],
+    exclusions: [
+      'Prasad & pooja materials',
+      'Entry donations at temple',
+      'Meals during the journey',
+      'Return journey (one-way drop only)',
+      'Personal expenses',
+    ],
+    itinerary: [
+      {
+        id: 'b1',
+        dayNumber: 1,
+        title: 'Pickup from Amb Andaura Railway Station',
+        description:
+          'Our driver will receive you at Amb Andaura Railway Station and assist you with your luggage. Begin your comfortable and smooth ride towards Maa Baglamukhi Temple in Bankhandi.',
+      },
+      {
+        id: 'b2',
+        dayNumber: 2,
+        title: 'Arrive at Maa Baglamukhi Temple, Bankhandi',
+        description:
+          'Reach the divine abode of Maa Baglamukhi — the eighth Mahavidya — nestled in the serene hills of Kangra district. The temple is renowned for its miraculous powers of removing obstacles, negative energies, and granting victory. Take the blessings of the Goddess and experience the spiritual aura of this ancient Shakti Peetha.',
+      },
+    ],
   },
   {
     id: '3',
