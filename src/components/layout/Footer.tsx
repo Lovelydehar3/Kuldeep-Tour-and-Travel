@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, MessageCircle, Youtube, Linkedin } from 'lucide-react';
 import logo from '@/assets/logo.jpg';
 import { CONTACT } from '@/lib/contact';
