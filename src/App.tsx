@@ -28,6 +28,7 @@ const DehraDelhiDrop = lazy(() => import('@/pages/DehraDelhiDrop'));
 const PackageDetail = lazy(() => import('@/pages/PackageDetail'));
 const BookFixedPackageUnified = lazy(() => import('@/pages/BookFixedPackageUnified'));
 const ExploreHimachal = lazy(() => import('@/pages/ExploreHimachal'));
+const StationDetail = lazy(() => import('@/pages/StationDetail'));
 
 const queryClient = new QueryClient();
 
@@ -69,6 +70,7 @@ const App = () => (
 
               <Route path="/explore-himachal" element={<ExploreHimachal />} />
               <Route path="/explore-himachal/:slug" element={<ExploreHimachal />} />
+              <Route path="/stations/:slug" element={<StationDetail />} />
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

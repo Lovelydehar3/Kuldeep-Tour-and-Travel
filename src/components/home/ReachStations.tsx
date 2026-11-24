@@ -17,6 +17,7 @@ const stations = [
     label: 'Railway Station',
     image: stationAmbAndaura,
     bookParam: 'Amb Andaura Railway Station',
+    slug: 'amb-andaura-railway-station',
   },
   {
     id: '2',
@@ -24,6 +25,7 @@ const stations = [
     label: 'Railway Station',
     image: stationPathankot,
     bookParam: 'Pathankot Railway Station',
+    slug: 'pathankot-railway-station',
   },
   {
     id: '3',
@@ -31,6 +33,7 @@ const stations = [
     label: 'Railway Station',
     image: stationChandigarh,
     bookParam: 'Chandigarh Railway Station',
+    slug: 'chandigarh-railway-station',
   },
   {
     id: '4',
@@ -38,6 +41,7 @@ const stations = [
     label: 'Kangra Airport',
     image: airportKangra,
     bookParam: 'Gaggal Airport',
+    slug: 'gaggal-airport-kangra',
   },
   {
     id: '5',
@@ -45,6 +49,7 @@ const stations = [
     label: 'Airport',
     image: airportChandigarh,
     bookParam: 'Chandigarh Airport',
+    slug: 'chandigarh-airport',
   },
   {
     id: '6',
@@ -52,6 +57,7 @@ const stations = [
     label: 'International Airport',
     image: airportAmritsar,
     bookParam: 'Amritsar Airport',
+    slug: 'amritsar-airport',
   },
 ];
 
@@ -73,11 +79,7 @@ const ReachStations = () => {
         {/* Stations Grid - picture cards like DestinationsPreview */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10">
           {stations.map((station) => (
-            <Link
-              key={station.id}
-              to={`/book/station?station=${encodeURIComponent(station.bookParam)}`}
-              className="group"
-            >
+            <div key={station.id} className="group">
               <div className="relative rounded-2xl overflow-hidden bg-muted aspect-[4/3]">
                 <OptimizedImage
                   src={station.image}
@@ -86,19 +88,30 @@ const ReachStations = () => {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
                   <span className="bg-primary text-primary-foreground text-xs font-medium px-2 py-1 rounded mb-2 inline-block">
                     {station.label}
                   </span>
-                  <h3 className="text-lg sm:text-xl font-bold font-display text-cream group-hover:text-primary transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold font-display text-cream group-hover:text-primary transition-colors mb-3">
                     {station.name}
                   </h3>
-                  <span className="text-primary text-sm font-medium flex items-center gap-1 mt-1">
-                    Book Taxi <ArrowRight size={14} />
-                  </span>
+                  <div className="flex gap-2">
+                    <Link
+                      to={`/stations/${station.slug}`}
+                      className="flex-1 text-center bg-cream/20 backdrop-blur-sm text-cream text-xs font-medium py-2 px-3 rounded-lg hover:bg-cream/30 transition-colors"
+                    >
+                      View Details
+                    </Link>
+                    <Link
+                      to={`/book/station?station=${encodeURIComponent(station.bookParam)}`}
+                      className="flex-1 text-center bg-primary text-primary-foreground text-xs font-medium py-2 px-3 rounded-lg hover:bg-amber-dark transition-colors flex items-center justify-center gap-1"
+                    >
+                      Book Taxi <ArrowRight size={12} />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
 

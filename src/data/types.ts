@@ -1,8 +1,16 @@
 export interface Station {
   id: string;
   name: string;
+  slug: string;
   type: 'station' | 'airport';
   active: boolean;
+  image?: string;
+  tagline?: string;
+  about?: string[];
+  location?: string;
+  popularRoutes?: { from: string; to: string }[];
+  highlights?: string[];
+  whyChooseUs?: string[];
 }
 
 export interface ItineraryDay {

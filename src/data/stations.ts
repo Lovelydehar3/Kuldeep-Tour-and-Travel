@@ -18,6 +18,6 @@ export const getStationById = (id: string) => {
   return getStations().find(s => s.id === id);
 };
 
-export const getStationByName = (name: string) => {
-  return getStations().find(s => s.name === name);
+export const getStationBySlug = (slug: string) => {
+  return getStations().find(s => s.slug === slug);
 };
